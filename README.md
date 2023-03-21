@@ -22,3 +22,55 @@ Web-based check-in system for college professors
 10. In case of any technical issues or errors, professors can contact the system administrators for assistance.
 
 
+// SVCC ADRENALINE FUNCTION SUMMARY
+
+The system would consist of a web application that includes two separate user interfaces: one for professors and one for administrators.
+
+Professor Interface:
+
+The professor interface would allow professors to check in to their assigned classes and view their attendance records. The interface would include the following features:
+
+Login: Professors would log in to the system using their email and password.
+Class selection: Once logged in, professors would be able to select the class they are currently teaching.
+Check-in: Professors would be able to check in to their selected class using their device's geolocation and IP address, which would be recorded by the system.
+Check-out: At the end of the class, professors would be able to check out of the class using their device's geolocation and IP address.
+Attendance record: Professors would be able to view their attendance records for each class they teach, including the date, start time, end time, and attendance status.
+
+Functions for professors:
+
+Check-in and Check-out: Professors would be able to check-in and check-out of their classes, indicating when they start and end their teaching sessions. This feature would allow the system to track their attendance and ensure that they are meeting their teaching obligations.
+
+Schedule management: Professors would be able to view and manage their schedules, including accessing their class assignments, requesting time off, and managing conflicts.
+
+Notification management: Professors would be able to customize their notification preferences, including setting up email or mobile notifications for class assignments, schedule changes, and check-in/check-out confirmations.
+
+Reporting and analytics: Professors would be able to view reports and analytics related to their attendance and usage of the system, including the number of classes they have taught and their overall attendance rate.
+
+Profile management: Professors would be able to manage their user profiles, including updating personal information, changing passwords, and configuring settings such as time zone and notification preferences.
+
+The check-in and check-out function would help to ensure that professors are meeting their teaching obligations, and it would provide administrators with accurate attendance records for each class. It could also be integrated with the location tracking feature, allowing administrators to confirm that professors are physically present in the classroom when they check-in.
+
+
+
+Admin Interface:
+
+The admin interface would allow administrators to manage the system and assign classes and schedules to professors. The interface would include the following features:
+
+Login: Admins would log in to the system using their email and password.
+Professor management: Admins would be able to view a list of professors currently registered in the system and add or remove professors as needed.
+Class management: Admins would be able to add new classes to the system and assign existing classes to professors.
+Schedule management: Admins would be able to assign class schedules to professors, specifying the start time, end time, and day(s) of the week the class meets.
+Attendance management: Admins would be able to view attendance records for all classes and professors and generate reports as needed.
+User management: Admins would be able to manage user accounts, including creating new accounts, resetting passwords, and deleting accounts.
+
+Functions for administrators:
+
+User management: Administrators would be able to manage user accounts, including creating new accounts, updating user roles, and resetting passwords.
+
+Class assigning: Administrators would be able to assign classes to professors based on their availability and subject expertise. This feature could include the ability to search for available professors based on their schedules and areas of expertise.
+
+Schedule management: Administrators would be able to view and manage schedules for all professors, including adding or updating classes, assigning substitutes, and managing conflicts.
+
+Reporting and analytics: Administrators would be able to generate reports and analytics to track attendance, monitor usage, and identify issues or trends. This feature could include the ability to customize reports based on the needs of the school.
+
+System settings: Administrators would be able to configure system settings, such as defining user roles, setting up IP and location tracking, and customizing notifications.
