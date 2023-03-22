@@ -1,0 +1,535 @@
+MARCH 21, 2023
+GOLEZ LLOYD
+4th YEAR IT / Registrar Staff
+
+SVCC ADRENALINE
+
+Web-based attendance tracking and scheduling system for college professors. It allows professors to check in and out for each class, tracks their IP and location, and provides attendance reports. It also allows the admin to assign schedules for each class for the entire semester and manage attendance reports for all professors. Overall, this system provides an efficient and automated way to manage attendance and scheduling for college classes.
+
+FACULTY DATA FLOW DIAGRAM
+
+    +---------------------------------+
+    |                                 |
+    |          Faculty Member         |
+    |                                 |
+    +---------------+-----------------+
+                    |
+                    v
+        +------------------------+
+        |                        |
+        |      Login Page        |
+        |                        |
+        +---------------+--------+
+                        |
+                        v
+             +---------------------+
+             |                     |
+             |      Dashboard      |
+             |                     |
+             +---------------+-----+
+                             |
+        +--------------------+-----------------+
+        |                                       |
+        v                                       v
++-----------------------+               +----------------------+
+|                       |               |                      |
+|    Class Schedule     |               |     Attendance Log   |
+|                       |               |                      |
++-----------+-----------+               +-----------+----------+
+            |                                       |
+            v                                       v
++-----------+-----------+               +-----------+----------+
+|                       |               |                      |
+|    Class Selection    |               |  Attendance Recording|
+|                       |               |                      |
++-----------------------+               +----------------------+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+DATABASE MODEL PROTOTYPE
+
+
+Professors:
+- id (int, PK)
+- name (varchar)
+- email (varchar)
+- password (varchar)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+Class_Schedules:
+- id (int, PK)
+- professor_id (int, FK)
+- course_name (varchar)
+- start_time (timestamp)
+- end_time (timestamp)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+Attendance_Records:
+- id (int, PK)
+- class_schedule_id (int, FK)
+- professor_id (int, FK)
+- attendance_time (timestamp)
+- ip_address (varchar)
+- location (varchar)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+Admins:
+- id (int, PK)
+- name (varchar)
+- email (varchar)
+- password (varchar)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+Semester_Schedules:
+- id (int, PK)
+- professor_id (int, FK)
+- course_name (varchar)
+- start_time (timestamp)
+- end_time (timestamp)
+- created_at (timestamp)
+- updated_at (timestamp)
+
+
+RELATIONAL MODEL
+
+Professors (id PK, name varchar, email varchar, password varchar, created_at timestamp, updated_at timestamp)
+
+Class_Schedules (id PK, professor_id FK, course_name varchar, start_time timestamp, end_time timestamp, created_at timestamp, updated_at timestamp)
+
+Attendance_Records (id PK, class_schedule_id FK, professor_id FK, attendance_time timestamp, ip_address varchar, location varchar, created_at timestamp, updated_at timestamp)
+
+Admins (id PK, name varchar, email varchar, password varchar, created_at timestamp, updated_at timestamp)
+
+Semester_Schedules (id PK, professor_id FK, course_name varchar, start_time timestamp, end_time timestamp, created_at timestamp, updated_at timestamp)
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+
+ADMIN 
+
+The GUI consists of a header with the title of the attendance system and a greeting for the admin. The main body of the GUI includes buttons for assigning schedules, managing users, viewing attendance, and logging out. It also displays a schedule grid and a user list.
+
+The admin can assign schedules by clicking the "Assign Schedule" button, which will open a dialog box where the admin can select a user and assign classes to them. The schedule grid shows the class schedule for the week, with each column representing a day of the week and each row representing a class period. The admin can also manage users by clicking the "Manage Users" button, which will open a user management page where the admin can add, edit, or delete users.
+
+The admin can view attendance records by clicking the "View Attendance" button, which will open a page where the admin can select a class and view the attendance records for that class. The admin can also view attendance reports by clicking the "View Report" button, which will open a dialog box where the admin can select a class and a date range to generate a report.
+
+The GUI can be designed using a user interface design tool such as Figma or Sketch, and implemented using a front-end web development framework such as React or Angular. The buttons can be implemented using event handlers that call the attendance system's back-end API. The GUI can also be customized with additional features, such as search filters or pagination, depending on the requirements of the attendance system.
+
+-------------------------------------
+|                                   |
+|      Attendance System - Admin    |
+|                                   |
+-------------------------------------
+|                                   |
+|        Hello, Admin!              |
+|                                   |
+-------------------------------------
+|                                   |
+|  Assign Schedule  |  Manage Users |
+|  View Attendance  |  Logout       |
+|                                   |
+-------------------------------------
+|                                   |
+|            Schedule               |
+|                                   |
+|   Monday    |   Tuesday   | ...   |
+|   Class 1   |   Class 2   | ...   |
+|   8:00 AM   |  10:00 AM   | ...   |
+|                                   |
+|   Class 3   |   Class 4   | ...   |
+|  12:00 PM   |   2:00 PM   | ...   |
+|                                   |
+|   ...       |   ...       | ...   |
+|                                   |
+-------------------------------------
+|                                   |
+|             Users                 |
+|                                   |
+|  Username 1  |  Name 1    |  ...  |
+|  Username 2  |  Name 2    |  ...  |
+|  Username 3  |  Name 3    |  ...  |
+|      ...     |    ...     |  ...  |
+|                                   |
+-------------------------------------
+|                                   |
+|           Attendance              |
+|                                   |
+|  Select Class:  |  View Report:   |
+|    Class Name   |   Class Name    |
+|  View Attendance|  Start Date:    |
+|                 |  End Date:      |
+|                                   |
+-------------------------------------
+
+
+ATTENDANCE REPORT 
+
+-------------------------------------
+|                                   |
+|  Attendance Summary - Admin       |
+|                                   |
+-------------------------------------
+|                                   |
+|       Hello, Admin!               |
+|                                   |
+-------------------------------------
+|                                   |
+|           Summary                 |
+|                                   |
+|      Date Range:  Mar 1 - 15      |
+|                                   |
+| Total Professors:    10           |
+| Total Classes:       100          |
+| Classes Attended:     80          |
+| Classes Missed:       20          |
+| Attendance Rate:      80.0%       |
+|                                   |
+-------------------------------------
+|                                   |
+|         Professor List            |
+|                                   |
+|  +------+-----------------------| |
+|  | Name | Attendance Rate       | |
+|  +------+-----------------------| |
+|  | John | 90.0%   (36 classes)  | |
+|  | Mary | 80.0%   (32 classes)  | |
+|  | Alex | 75.0%   (30 classes)  | |
+|  | ...  | ...                   | |
+|  +------+-----------------------| |
+|                                   |
+-------------------------------------
+
+FACULTY
+
+
+The GUI consists of a header with the title of the attendance system and a greeting for the professor. The main body of the GUI includes buttons for check-in, check-out, and logout. It also displays the current class name, class schedule for the week, and attendance records. The attendance records show the number of classes attended and missed, and any discrepancies that have been found.
+
+The GUI can be designed using a user interface design tool such as Figma or Sketch, and implemented using a front-end web development framework such as React or Angular. The buttons can be implemented using event handlers that call the attendance system's back-end API. The GUI can also be customized with additional features, such as pop-up notifications or error messages, depending on the requirements of the attendance system.
+
+-------------------------------------
+|                                   |
+|      Attendance System - Prof     |
+|                                   |
+-------------------------------------
+|                                   |
+|        Hello, Professor!          |
+|                                   |
+-------------------------------------
+|                                   |
+|  Check-in  |  Check-out  |  Logout|
+|                                   |
+-------------------------------------
+|                                   |
+|         Current Class:            |
+|                                   |
+|          Class Name               |
+|                                   |
+-------------------------------------
+|                                   |
+|         Class Schedule:           |
+|                                   |
+|      Monday   |  Class Name       |
+|      8:00 AM  |  Room Number      |
+|               |                   |
+|      Tuesday  |  Class Name       |
+|      10:00 AM |  Room Number      |
+|               |                   |
+|      ...      |  ...              |
+|                                   |
+-------------------------------------
+|                                   |
+|           Attendance              |
+|                                   |
+|     Classes Attended: 10/12       |
+|     Classes Missed:    2/12       |
+|                                   |
+-------------------------------------
+|                                   |
+|           Notifications           |
+|                                   |
+|       Discrepancies Found         |
+|         Click to Resolve          |
+|                                   |
+-------------------------------------
+
+
+ATTEDANCE SUMMARY REPORT 
+
+-------------------------------------
+|                                   |
+|  Attendance Summary - Professor  |
+|                                   |
+-------------------------------------
+|                                   |
+|       Hello, Professor!           |
+|                                   |
+-------------------------------------
+|                                   |
+|           Summary                 |
+|                                   |
+|      Date Range:  Mar 1 - 15      |
+|                                   |
+|    Classes Attended:    8/10      |
+|    Classes Missed:      2/10      |
+|    Attendance Rate:     80.0%     |
+|                                   |
+-------------------------------------
+|                                   |
+|         Class Attendance          |
+|                                   |
+|       Class Name:  Class 1        |
+|                                   |
+|        Date       |   Status     |
+|      Mar 1, 2023  |   Present    |
+|      Mar 3, 2023  |   Present    |
+|      Mar 6, 2023  |   Absent     |
+|        ...        |     ...      |
+|                                   |
+-------------------------------------
+|                                   |
+|           Notifications           |
+|                                   |
+|         No notifications          |
+|                                   |
+-------------------------------------
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+CALENDAR VIEW INITIAL PROTOTYPE
+
+The data flow for the calendar view in the attendance tracking and scheduling system would involve several components:
+
+Database: The calendar view would retrieve data from the Semester Schedule and Attendance tables in the database. The Semester Schedule table would provide the class schedules for each professor, including the start and end times and location of each class. The Attendance table would provide the attendance data for each class, including the check-in and check-out times and the attendance status for each student.
+
+Backend Server: The backend server would retrieve the necessary data from the database and format it in a way that can be easily consumed by the front-end application. The server might use a REST API to provide access to the data, with endpoints for retrieving class schedules and attendance data.
+
+Front-end Application: The front-end application would display the calendar view to the user and handle user interactions such as clicking on a class block or editing class details. The application would use a library such as FullCalendar or DayPilot to display the calendar view and integrate with the backend server to retrieve the necessary data.
+
+User Interface: The user interface would allow the user to view and interact with the calendar view. The interface might include buttons for navigating between different weeks or months, options for changing the view (e.g. monthly or weekly), and pop-up windows or modal dialogs for displaying additional details or allowing the user to edit class details.
+
+Overall, the data flow for the calendar view would involve retrieving data from the database, formatting it for display in the front-end application, and allowing the user to interact with the data through the user interface.
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+1. The Admin can access the system to perform admin functions such as managing faculty members, managing classes, assigning class schedules to professors, generating attendance reports, and sending emails to faculty members.
+
+2. The Professor can access the system to check-in and check-out of classes, view their assigned class schedule, and view their attendance summary.
+
+3. When a Professor checks in or checks out of a class, the attendance tracking system records their attendance data, including the date, check-in and check-out times, IP address, and location information.
+
+4. The attendance tracking system generates attendance reports for each faculty member based on the attendance data collected. These reports can be viewed by the Admin and sent to faculty members via email.
+
+5. The Admin can send emails to faculty members regarding their attendance data or any other relevant information. These emails are stored in the system for future reference.
+
+6. The attendance tracking system stores all data related to faculty members, classes, attendance, class schedules, and emails in a MySQL database.
+
+Overall, this data flow diagram illustrates the various interactions between the Admin, Professor, and the attendance tracking system, allowing for efficient and effective management of attendance data for academic institutions.
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+professor
+
+Field Name	Data Type	Description
+professor_id	INT	Unique identifier for the professor
+name	VARCHAR(255)	Name of the professor
+email	VARCHAR(255)	Email address of the professor
+password	VARCHAR(255)	Password for the professor account
+class
+
+Field Name	Data Type	Description
+class_id	INT	Unique identifier for the class
+name	VARCHAR(255)	Name of the class
+schedule
+
+Field Name	Data Type	Description
+schedule_id	INT	Unique identifier for the schedule
+professor_id	INT	ID of the professor
+class_id	INT	ID of the class
+start_time	TIME	Start time of the class
+end_time	TIME	End time of the class
+day_of_week	ENUM('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')	Day of the week the class meets
+attendance
+
+Field Name	Data Type	Description
+attendance_id	INT	Unique identifier for the attendance record
+professor_id	INT	ID of the professor
+class_id	INT	ID of the class
+date	DATE	Date of the attendance record
+time_in	TIME	Time the professor checked in
+time_out	TIME	Time the professor checked out
+ip_address	VARCHAR(255)	IP address of the device used for check-in/check-out
+location	VARCHAR(255)	Location of the device used for check-in/check-out
+status	ENUM('present', 'absent')	Attendance status
+admin
+
+Field Name	Data Type	Description
+admin_id	INT	Unique identifier for the admin
+name	VARCHAR(255)	Name of the admin
+email	VARCHAR(255)	Email address of the admin
+password	VARCHAR(255)	Password for the admin account
+
+
+You could also include additional tables to support user authentication, access control, and reporting.
+
+With this updated schema, the admin could assign class schedules to every professor by adding entries to the "schedule" table. This would enable the system to track attendance for each class based on the assigned schedule.
+
+***************************************************************************************************************************************
+
+Project design for the attendance tracking and scheduling system:
+
+User interface: The system will have a web-based user interface that allows professors to check in and out of classes, view their schedules, and view their attendance reports. The admin interface will allow the admin to assign schedules for each class, view attendance reports for all professors, and manage user accounts.
+
+Backend: The system will be built using a combination of front-end technologies such as HTML, CSS, and JavaScript, and back-end technologies such as Python, Django, and a relational database management system (RDBMS) such as PostgreSQL or MySQL. The backend will handle user authentication, data storage and retrieval, and business logic.
+
+Authentication: The system will use authentication to ensure that only authorized users can access the system. Professors will be required to enter their username and password to log in, and the admin will have full access to the system.
+
+Check-in/out functionality: The system will allow professors to check in and out of classes manually using the web-based user interface. The system will also track the IP and location of each check-in and check-out.
+
+Schedule assignment: The admin will be able to assign schedules for each class for the entire semester using the web-based user interface. This will involve selecting the day, time, and location of each class, as well as assigning a professor to teach each class.
+
+Attendance reports: The system will generate attendance reports for each professor, showing the total number of classes attended and the total number of classes missed. The reports will be viewable by both the professor and the admin.
+
+Testing: The system will be thoroughly tested to ensure that it meets the requirements and specifications. This will include functional testing, performance testing, security testing, and user acceptance testing.
+
+Deployment: Once the system has passed all the tests, it can be deployed to a production environment. This involves setting up the necessary infrastructure, configuring the servers, and installing the software.
+
+Maintenance: After the system is deployed, it needs to be maintained and updated to ensure that it continues to meet the needs of the users. This includes fixing bugs, adding new features, and updating the software as needed.
+
+User support: Finally, the system needs to be supported and maintained to ensure that the users can use it effectively. This includes providing documentation, training, and technical support to the users.
+
+***************************************************************************************************************************************
+
+Project development process for the web-based attendance tracking and scheduling system for college professors:
+
+Planning Phase:
+    Define project objectives and goals
+    Identify stakeholders and gather requirements
+    Create project plan and timeline
+    Determine project budget
+Analysis Phase:
+    Conduct feasibility study
+    Develop use cases and user stories
+    Analyze and document requirements
+    Create system architecture and design
+Design Phase:
+    Develop wireframes, prototypes, and mockups
+    Create user interface design
+    Develop database schema and data models
+    Develop software architecture and system design
+Implementation Phase:
+    Write code and develop the system
+    Conduct unit testing and integration testing
+    Implement security measures
+    Develop deployment strategy and deploy the system
+Testing Phase:
+    Conduct system testing and performance testing
+    Identify and fix bugs and issues
+    Conduct user acceptance testing and obtain feedback
+    Ensure the system meets all requirements and objectives
+Maintenance Phase:
+    Provide ongoing support and maintenance
+    Make updates and enhancements to the system
+    Conduct periodic security audits and updates
+    Monitor system performance and resolve any issues that arise
+    Throughout each phase of the project, it's important to use an iterative and incremental approach to development, allowing for feedback and adjustments along the way. Communication and collaboration between the development team and stakeholders is also crucial for success.
+
+
+***********************************************************************************************************************
+
+SVCC FILE HIERARCHY PROTOTYPE 
+
+├── config.php
+│
+├── controllers/
+│   ├── ProfessorController.php
+│   ├── ClassScheduleController.php
+│   ├── AttendanceRecordController.php
+│   └── AdminController.php
+│
+├── models/
+│   ├── Professor.php
+│   ├── ClassSchedule.php
+│   ├── AttendanceRecord.php
+│   └── Admin.php
+│
+├── views/
+│   ├── login.php
+│   ├── dashboard.php
+│   ├── professor/
+│   │   ├── schedule.php
+│   │   ├── attendance.php
+│   │   ├── profile.php
+│   │   └── settings.php
+│   │
+│   ├── admin/
+│   │   ├── schedule.php
+│   │   ├── attendance.php
+│   │   ├── professor.php
+│   │   ├── student.php
+│   │   ├── report.php
+│   │   ├── settings.php
+│   │   └── help.php
+│   │
+│   ├── partials/
+│   │   ├── header.php
+│   │   ├── footer.php
+│   │   └── messages.php
+│   │
+│   └── errors/
+│       ├── 404.php
+│       └── 500.php
+│
+├── assets/
+│   ├── css/
+│   │   ├── styles.css
+│   │   └── bootstrap.min.css
+│   │
+│   ├── js/
+│   │   ├── app.js
+│   │   └── bootstrap.min.js
+│   │
+│   └── images/
+│       ├── logo.png
+│       ├── schedule.png
+│       └── attendance.png
+│
+├── helpers.php
+│
+├── vendor/
+│   ├── autoload.php
+│   └── ...
+│
+├── .htaccess
+├── index.php
+├── routes.php
+└── README.md
+
+
+

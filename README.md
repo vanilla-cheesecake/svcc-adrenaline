@@ -1,6 +1,9 @@
 # svcc-adrenaline
 Web-based check-in system for college professors
 
+
+Web-based attendance tracking and scheduling system for college professors. It allows professors to check in and out for each class, tracks their IP and location, and provides attendance reports. It also allows the admin to assign schedules for each class for the entire semester and manage attendance reports for all professors. Overall, this system provides an efficient and automated way to manage attendance and scheduling for college classes.
+
 1. College professors access the web-based check-in system through a web browser on their computer or mobile device.
 
 2. Professors are prompted to enter their unique identifier, such as their username or ID number, to log in to the system.
