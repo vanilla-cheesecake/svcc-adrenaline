@@ -1,0 +1,119 @@
+1. Planning and Requirements Gathering:
+
+Define the goals and objectives of the project
+Identify the features and functionalities required in the system
+Determine the technology stack and development tools needed
+2. Database Design and Development:
+
+Design and implement the database schema
+Define the relationships between tables
+Implement data validation rules and constraints
+3. User Authentication and Authorization:
+
+Implement user authentication using PHP and MySQL
+Create login forms for professors and admin
+Implement password hashing and encryption
+Implement authorization checks to restrict access to certain pages and features
+4. Professor Dashboard:
+
+Create a dashboard for professors to view their schedules, attendance records, and personal information
+Implement features for professors to check in and out of classes
+Add location tracking feature to the check-in form
+5. Class Scheduling System:
+
+Create a system for admin to manage class schedules
+Implement a form for professors to view their class schedules
+Add functionality to notify professors of any schedule changes
+6. Attendance Reporting:
+
+Create a system for generating attendance reports for professors and admin
+Implement features to filter and sort attendance records
+Add a feature for admin to export attendance reports in different formats
+7. User Management:
+
+Implement features for admin to manage professor and student accounts
+Create forms for adding, deleting, and updating user information
+Implement security measures to protect user data
+8. Testing and Deployment:
+
+Write unit tests and integration tests to ensure the system functions properly
+Deploy the system to a production server
+Perform load testing to ensure the system can handle a large number of users
+
+
+
+
+
+
+
+Task	Start Date	End Date	Duration
+Phase 1: Planning			
+Define project scope and requirements	2023-04-01	2023-04-04	3 days
+Identify project team and assign roles	2023-04-04	2023-04-05	1 day
+Develop project plan and schedule	2023-04-05	2023-04-06	1 day
+Develop wireframes and prototypes	2023-04-07	2023-04-14	7 days
+Review and approve wireframes and prototypes	2023-04-15	2023-04-16	2 days
+Phase 2: Development			
+Set up development environment and tools	2023-04-17	2023-04-18	2 days
+Implement database schema and tables	2023-04-19	2023-04-22	4 days
+Develop user authentication and authorization system	2023-04-23	2023-04-28	6 days
+Develop professor dashboard and views	2023-04-29	2023-05-05	7 days
+Develop admin dashboard and views	2023-05-06	2023-05-12	7 days
+Develop class scheduling and attendance tracking system	2023-05-13	2023-05-26	10 days
+Develop reporting and data analysis tools	2023-05-27	2023-06-02	7 days
+Phase 3: Testing			
+Conduct unit testing and bug fixing	2023-06-03	2023-06-16	10 days
+Conduct integration testing and bug fixing	2023-06-17	2023-06-30	10 days
+Conduct user acceptance testing and bug fixing	2023-07-01	2023-07-07	7 days
+Phase 4: Deployment and Maintenance			
+Deploy system to production server	2023-07-08	2023-07-09	2 days
+Conduct final testing and bug fixing	2023-07-10	2023-07-14	5 days
+Launch system and provide user training	2023-07-15	2023-07-19	5 days
+Provide maintenance and support	2023-07-20	2023-09-30	70 days
+
+
+
+Project Planning and Analysis
+
+Define project scope and requirements
+Identify stakeholders and their needs
+Conduct feasibility study
+Develop project plan
+Create project timeline
+Assign team members and roles
+Database Design and Development
+
+Design ERD and schema
+Create database tables and relationships
+Implement data validation and integrity
+Create SQL queries for CRUD operations
+Test database functionality and performance
+Frontend Development
+
+Design user interface wireframes
+Develop HTML and CSS templates
+Implement JavaScript and jQuery functionalities
+Develop login and registration pages
+Implement professor dashboard
+Implement admin dashboard
+Test frontend functionality and user experience
+Backend Development
+
+Develop authentication and authorization system
+Develop CRUD functionalities for professors, class schedules, and attendance records
+Implement IP and location tracking for attendance
+Develop report generation and export functionalities
+Test backend functionality and performance
+System Integration and Testing
+
+Integrate frontend and backend systems
+Conduct system testing and debugging
+Conduct user acceptance testing
+Implement feedback and improvement suggestions
+Deployment and Maintenance
+
+Deploy system to production server
+Conduct post-deployment testing and maintenance
+Provide user training and support
+Monitor system performance and security
+Conduct periodic system upgrades and maintenance.

@@ -6,6 +6,29 @@ SVCC ADRENALINE
 
 Web-based attendance tracking and scheduling system for college professors. It allows professors to check in and out for each class, tracks their IP and location, and provides attendance reports. It also allows the admin to assign schedules for each class for the entire semester and manage attendance reports for all professors. Overall, this system provides an efficient and automated way to manage attendance and scheduling for college classes.
 
+USE CASE DIAGRAM
+            Professor          Admin
+                    |             |
+                    |             |
+            +-------+-------+     |
+            | Check in/out |      |
+            +-------+-------+     |
+                    |             |
+                    |             |
+    +---------------+---------------+
+    |                                |
++---+---------------------+  +-------+-------------------+
+| Assign Schedule         |  | Manage Attendance Report |
++------------------------+   +------------------------+
+|                         |  |                          |
+| - Select class          |  | - Generate report        |
+| - Set schedule          |  | - View attendance report |
+| - Add class information |  | - Edit attendance record |
+|                         |  | - Export attendance data |
++--------------------------+ +-------------------------+
+
+
+
 FACULTY DATA FLOW DIAGRAM
 
     +---------------------------------+
